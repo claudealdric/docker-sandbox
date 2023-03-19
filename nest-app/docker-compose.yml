@@ -1,0 +1,12 @@
+version: '3'
+services:
+  nest-app:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - /home/node/app/node_modules
+      - ./src:/home/node/app/src
