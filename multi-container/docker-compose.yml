@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nest-app:
+    build: .
+    restart: always
+    ports:
+      - '3000:3000'
+    depends_on: [postgres]
+    environment:
+      HOST: postgres
+      PORT: 5432
+      USERNAME: postgres
+      PASSWORD: password
+      DATABASE: postgres
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
